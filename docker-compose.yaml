@@ -1,0 +1,34 @@
+version: '3'
+services:
+
+  # rocm_root:
+  #   build:
+  #     context: .
+  #     dockerfile: Dockerfile
+  #   # image: serhiin/rocm_gfx1012_pytorch:ubuntu2204_rocm543_pytorch21
+  #   devices:
+  #     # - "/dev/dri"
+  #     - "/dev/kfd"
+  #     - "/dev/dri/card0"
+  #     - "/dev/dri/renderD128"
+  #   # volumes:
+  #   #   - ./:/home/jenkins/project
+  #   ipc: host
+
+  rocm_rootless:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    # image: serhiin/rocm_gfx1012_pytorch:ubuntu2204_rocm543_pytorch21
+    # devices:
+    #   # - "/dev/dri"
+    #   - "/dev/kfd"
+    #   - "/dev/dri/card0"
+    #   - "/dev/dri/renderD128"
+    # volumes:
+    #   - ./:/home/jenkins/myproject
+    ipc: host
+    privileged: true
+    environment:
+      - HIP_VISIBLE_DEVICES=0
+      - ROCR_VISIBLE_DEVICES=0

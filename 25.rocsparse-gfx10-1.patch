@@ -1,0 +1,32 @@
+diff --git a/library/src/include/common.h b/library/src/include/common.h
+index 076809d2..52d7a467 100644
+--- a/library/src/include/common.h
++++ b/library/src/include/common.h
+@@ -33,14 +33,20 @@
+ // clang-format off
+ 
+ #ifndef ROCSPARSE_USE_MOVE_DPP
+-#if defined(__gfx803__) || \
+-    defined(__gfx900__) || \
+-    defined(__gfx906__) || \
+-    defined(__gfx908__) || \
+-    defined(__gfx90a__)
+-#define ROCSPARSE_USE_MOVE_DPP 1
+-#else
++#if defined(__gfx1010__) || \
++    defined(__gfx1011__) || \
++    defined(__gfx1012__) || \
++    defined(__gfx1013__) || \
++    defined(__gfx1030__) || \
++    defined(__gfx1031__) || \
++    defined(__gfx1032__) || \
++    defined(__gfx1033__) || \
++    defined(__gfx1034__) || \
++    defined(__gfx1035__) || \
++    defined(__gfx1036__)
+ #define ROCSPARSE_USE_MOVE_DPP 0
++#else
++#define ROCSPARSE_USE_MOVE_DPP 1
+ #endif
+ #endif
+ 

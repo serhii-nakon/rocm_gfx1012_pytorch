@@ -1,0 +1,13 @@
+diff --git a/src/collectives/device/prims_ll128.h b/src/collectives/device/prims_ll128.h
+index 2242a08..cb0f350 100644
+--- a/src/collectives/device/prims_ll128.h	
++++ b/src/collectives/device/prims_ll128.h
+@@ -297,7 +297,7 @@ private:
+       }
+     }
+ 
+-#if !defined(__gfx1030__) && !defined(__gfx1100__) && !defined(__gfx1101__) && !defined(__gfx1102__)
++#if !defined(__gfx1030__) && !defined(__gfx1100__) && !defined(__gfx1101__) && !defined(__gfx1102__) && !defined(__gfx1012__)
+     if (tid == 0) __asm__ __volatile__("buffer_wbinvl1_vol");
+ #endif
+     /************************ Send **************************/
